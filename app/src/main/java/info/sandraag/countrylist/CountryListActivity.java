@@ -2,6 +2,7 @@ package info.sandraag.countrylist;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -33,5 +34,7 @@ public class CountryListActivity extends AppCompatActivity {
 
         adapter = new CountryListAdapter(this, countries);
         countryListView.setAdapter(adapter);
+
+        countryListView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
     }
 }
