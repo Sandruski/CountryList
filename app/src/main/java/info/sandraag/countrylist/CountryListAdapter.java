@@ -29,7 +29,6 @@ public class CountryListAdapter extends RecyclerView.Adapter<CountryViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull CountryViewHolder holder, int position) {
         holder.bind(countries.get(position));
-        
     }
 
     @Override
