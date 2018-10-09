@@ -23,6 +23,10 @@ public class CountryListActivity extends AppCompatActivity {
         countries.add("Portugal");
         countries.add("Spain");
         countries.add("France");
+        for (int i = 0; i < 200; ++i)
+        {
+            countries.add("Country " + i);
+        }
 
         countryListView = findViewById(R.id.countryListView);
         countryListView.setLayoutManager(new LinearLayoutManager(this));
