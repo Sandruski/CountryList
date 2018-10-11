@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -42,5 +43,17 @@ public class CountryListActivity extends AppCompatActivity {
         countryListView.setAdapter(adapter);
 
         countryListView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+
+        // Un RecyclerView no té listeners. Per això, hem de posar el listener al Adapter
+        adapter.setOnClickListener(new CountryListAdapter.OnClickListener() {
+            @Override
+            public void onClick(int position) {
+                Toast.makeText(
+                        CountryListActivity.this,
+                        "You've clicked " + position,
+                        Toast.LENGTH_SHORT
+                ).show();
+            }
+        });
     }
 }
