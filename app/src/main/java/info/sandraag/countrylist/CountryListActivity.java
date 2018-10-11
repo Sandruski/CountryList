@@ -45,6 +45,22 @@ public class CountryListActivity extends AppCompatActivity {
 
         countryListView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
+        // Movem la llista al país que hi havia seleccionat
+        Intent intent = getIntent();
+        int position = -1;
+
+        if (intent != null) {
+            String country = intent.getStringExtra("country");
+            for (int i = 0; i < countries.size(); ++i) {
+                if (countries.get(i).equals(country)) {
+                    position = i;
+                    break;
+                }
+            }
+        }
+        countryListView.scrollToPosition(position);
+
+        // Per donar el resultat, posem un listener
         // Un RecyclerView no té listeners. Per això, hem de posar el listener al Adapter
         adapter.setOnClickListener(new CountryListAdapter.OnClickListener() {
             @Override
